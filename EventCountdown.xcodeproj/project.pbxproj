@@ -24,6 +24,7 @@
 		C485D1F32528834200CAD8BB /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C485D1F22528834200CAD8BB /* PartialSheet */; };
 		C485D1FA252883EA00CAD8BB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1F9252883EA00CAD8BB /* Settings.swift */; };
 		C485D2062528B51400CAD8BB /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D2052528B51400CAD8BB /* EventItem.swift */; };
+		C48B19BE2528E5FB00025CCD /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = C48B19BD2528E5FB00025CCD /* DynamicColor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48B19BE2528E5FB00025CCD /* DynamicColor in Frameworks */,
 				C485D1F32528834200CAD8BB /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +240,7 @@
 			name = EventCountdown;
 			packageProductDependencies = (
 				C485D1F22528834200CAD8BB /* PartialSheet */,
+				C48B19BD2528E5FB00025CCD /* DynamicColor */,
 			);
 			productName = EventCountdown;
 			productReference = C485D1072527A12E00CAD8BB /* EventCountdown.app */;
@@ -332,6 +335,7 @@
 			mainGroup = C485D0FE2527A12E00CAD8BB;
 			packageReferences = (
 				C485D1F12528834200CAD8BB /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				C48B19BC2528E5FB00025CCD /* XCRemoteSwiftPackageReference "DynamicColor" */,
 			);
 			productRefGroup = C485D1082527A12E00CAD8BB /* Products */;
 			projectDirPath = "";
@@ -786,6 +790,14 @@
 				minimumVersion = 2.1.11;
 			};
 		};
+		C48B19BC2528E5FB00025CCD /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/DynamicColor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -793,6 +805,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C485D1F12528834200CAD8BB /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		C48B19BD2528E5FB00025CCD /* DynamicColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48B19BC2528E5FB00025CCD /* XCRemoteSwiftPackageReference "DynamicColor" */;
+			productName = DynamicColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 

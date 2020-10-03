@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 import PartialSheet
+import DynamicColor
 
 struct ContentView: View {
     @State var isEditMode:Bool = false
@@ -28,12 +29,16 @@ struct ContentView: View {
     
     
     private var items: FetchedResults<Item>
-    let backgound = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
+    
+   
 
     var body: some View {
-        NavigationView{
+        let oringnalColor = DynamicColor(selectedColor)
+        let colors = [oringnalColor.lighter(),oringnalColor,oringnalColor.darkened()].map{Color($0)}
+        
+       return NavigationView{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
+                LinearGradient(gradient: Gradient(colors: colors), startPoint: .topTrailing, endPoint: .bottomLeading)
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing:10, content: {
                     //Event Data
