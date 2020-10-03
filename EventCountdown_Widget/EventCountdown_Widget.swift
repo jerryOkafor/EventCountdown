@@ -40,9 +40,13 @@ struct SimpleEntry: TimelineEntry {
 
 struct EventCountdown_WidgetEntryView : View {
     var entry: Provider.Entry
+    let backgound = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
 
     var body: some View {
         Text(entry.date, style: .time)
+            .frame(maxWidth:.infinity, maxHeight:.infinity)
+            .background(backgound)
+
     }
 }
 
@@ -51,13 +55,14 @@ struct EventCountdown_WidgetEntryView : View {
 @main
 struct EventCountdown_Widget: Widget {
     let kind: String = "EventCountdown_Widget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             EventCountdown_WidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        
     }
 }
 

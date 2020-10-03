@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import PartialSheet
 
 struct ContentView: View {
     @State var isEditMode:Bool = false
@@ -16,8 +17,10 @@ struct ContentView: View {
     
     @State private var selectedDate = Date()
     @State var currentDate:String = "Oct 17th, 2020"
-    @State private var bgColor = Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+    @State private var selectedColor = Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+    
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var sheetManager : PartialSheetManager
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -25,83 +28,106 @@ struct ContentView: View {
     
     
     private var items: FetchedResults<Item>
+    let backgound = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
 
     var body: some View {
         NavigationView{
-            VStack(alignment:.leading, spacing:10){
-                //Event Data
-                eventDate(isInEditMode: isEditMode, currentDate: currentDate)
-                
-                //Countdown
-                VStack(alignment: .leading){
-                    HStack{
-                        Text("13")
-                            .font(.system(size: 130, weight: .bold, design: .default))
-//                            .foregroundColor(Color.white)
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
+                    .edgesIgnoringSafeArea(.all)
+                VStack(alignment: .leading, spacing:10, content: {
+                    //Event Data
+                    eventDate(isInEditMode: isEditMode, currentDate: currentDate)
+                    
+                    //Countdown
+                    VStack(alignment: .leading){
+                        HStack{
+                            Text("13")
+                                .font(.system(size: 120, weight: .bold, design: .default))
+                        }
+                        Text("days until ").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
-                    Text("days until ").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//                        .foregroundColor(Color.white)
-                }
-                //courosel
-//                HStack{
-//                    ColorPicker("", selection: $bgColor).labelsHidden()
-//                }
+                    
+                    EventItem(selectedColor: $selectedColor)
+                    
+                    Spacer()
+                    
+                    if !isEditMode{
+                        homeButtons()
+                    }else{
+                        editButtons()
+                    }
+                })
                 
-                //control
-                
-//                DatePicker(selection: $selectedDate,displayedComponents: .date) {
-//                    Text("Event Date")
-//                        .textCase(.uppercase)
-//                        .font(.subheadline)
-//                        .frame(alignment: .leading)
-//                }.datePickerStyle(GraphicalDatePickerStyle())
-               
-                
-                Spacer()
-                if !isEditMode{
-                    homeButtons()
-                }else{
-                    editButtons()
-                }
-            }.padding()
-            .navigationTitle("Event Countdown")
-            .sheet(isPresented: $datePickerActive, content: {
-                DatePicker(selection: $selectedDate,displayedComponents: .date) {
-                    Text("Event Date")
-                        .textCase(.uppercase)
-                        .font(.subheadline)
-                        .frame(alignment: .leading)
-                }.datePickerStyle(GraphicalDatePickerStyle())
-            })
-            
-//            .background(Color.blue)
-//            List {
-//                ForEach(items) { item in
-//                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .toolbar {
-//                HStack{
-//                    #if os(iOS)
-//                    EditButton()
-//                    #endif
-//
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
+                .frame(maxWidth:.infinity,maxHeight: .infinity,alignment: .leading)
+                .padding(.horizontal,20).padding(.top, 10)
+                .navigationTitle("Event Countdown")
+            }
+            .addPartialSheet()
         }
+        
+        
+//        NavigationView{
+//            ZStack{
+//                VStack(alignment:.leading, spacing:10){
+
+                    
+
+                    //courosel
+    //                HStack{
+    //                    ColorPicker("", selection: $bgColor).labelsHidden()
+    //                }
+                    
+                    //control
+                    
+    //                DatePicker(selection: $selectedDate,displayedComponents: .date) {
+    //                    Text("Event Date")
+    //                        .textCase(.uppercase)
+    //                        .font(.subheadline)
+    //                        .frame(alignment: .leading)
+    //                }.datePickerStyle(GraphicalDatePickerStyle())
+                   
+
+//                }.padding()
+//                .navigationTitle("Event Countdown")
+//
+            
+    //            .background(Color.blue)
+    //            List {
+    //                ForEach(items) { item in
+    //                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+    //                }
+    //                .onDelete(perform: deleteItems)
+    //            }
+    //            .toolbar {
+    //                HStack{
+    //                    #if os(iOS)
+    //                    EditButton()
+    //                    #endif
+    //
+    //                    Button(action: addItem) {
+    //                        Label("Add Item", systemImage: "plus")
+    //                    }
+    //                }
+    //            }
+//            }.ignoresSafeArea()
+//            .background(backgound)
+//
+//        }
 
 
     }
     
     private func eventDate(isInEditMode:Bool, currentDate:String)->some View{
-        
         Button(action: {
-//            guard isInEditMode else {return}
-            self.datePickerActive = true
+            self.sheetManager.showPartialSheet {
+                Section{
+                    DatePicker("",selection: $selectedDate,displayedComponents: .date) .datePickerStyle(GraphicalDatePickerStyle())
+                        .labelsHidden()
+
+                }.padding(.vertical,10)
+
+            }
         }, label: {
             HStack(alignment: .center, content: {
                 VStack(alignment: .leading){
@@ -111,7 +137,6 @@ struct ContentView: View {
                         .frame(alignment: .leading)
                     Text(currentDate)
                         .font(.title3)
-                    .foregroundColor(.blue)
                     
                 }
                 Spacer(minLength: 20)
@@ -119,11 +144,10 @@ struct ContentView: View {
                 
             })
         })
-
-        
-            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+        .foregroundColor(.white)
+        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         .frame(width:240,alignment: .leading)
-        .background(RoundedRectangle(cornerRadius: 10.0,style: .continuous).fill(Color.gray))
+        .background(RoundedRectangle(cornerRadius: 10.0,style: .continuous).stroke(Color.blue))
         
     }
     
@@ -147,16 +171,16 @@ struct ContentView: View {
     
     private func button(action: @escaping ()->Void, title:String,icon:String)-> some View{
         Button(action: action, label: {
-            VStack(spacing:10){
-                Image(systemName: icon)
-                Text(title)
+
+            VStack(alignment: .center, spacing:10){
+                Image(systemName: icon).font(.largeTitle).foregroundColor(.white)
+                Text(title).font(.caption).foregroundColor(.white)
             }.padding()
-        }).frame(width: 100, height: 100, alignment: .center)
+        }).frame(width: 100, height: 80, alignment: .center)
     }
     
     private func settings(){
-        self.settingsActive = true
-        
+        self.sheetManager.showPartialSheet{ Settings(isOn: $settingsActive)}
     }
     
     private func deleteItem(){

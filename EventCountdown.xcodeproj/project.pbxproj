@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,9 @@
 		C485D1CB2527A85000CAD8BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C485D1CA2527A85000CAD8BB /* Assets.xcassets */; };
 		C485D1CF2527A85000CAD8BB /* EventCountdown_WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C485D1C12527A84E00CAD8BB /* EventCountdown_WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C485D1E52527F59F00CAD8BB /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */; };
+		C485D1F32528834200CAD8BB /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C485D1F22528834200CAD8BB /* PartialSheet */; };
+		C485D1FA252883EA00CAD8BB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1F9252883EA00CAD8BB /* Settings.swift */; };
+		C485D2062528B51400CAD8BB /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D2052528B51400CAD8BB /* EventItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,8 @@
 		C485D1CA2527A85000CAD8BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C485D1CC2527A85000CAD8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
+		C485D1F9252883EA00CAD8BB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C485D2052528B51400CAD8BB /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C485D1F32528834200CAD8BB /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +151,7 @@
 		C485D1092527A12E00CAD8BB /* EventCountdown */ = {
 			isa = PBXGroup;
 			children = (
+				C485D1F8252883DA00CAD8BB /* UI */,
 				C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */,
 				C485D10A2527A12E00CAD8BB /* EventCountdownApp.swift */,
 				C485D10C2527A12E00CAD8BB /* ContentView.swift */,
@@ -202,6 +209,15 @@
 			path = EventCountdown_Widget;
 			sourceTree = "<group>";
 		};
+		C485D1F8252883DA00CAD8BB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C485D1F9252883EA00CAD8BB /* Settings.swift */,
+				C485D2052528B51400CAD8BB /* EventItem.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,6 +236,9 @@
 				C485D1CE2527A85000CAD8BB /* PBXTargetDependency */,
 			);
 			name = EventCountdown;
+			packageProductDependencies = (
+				C485D1F22528834200CAD8BB /* PartialSheet */,
+			);
 			productName = EventCountdown;
 			productReference = C485D1072527A12E00CAD8BB /* EventCountdown.app */;
 			productType = "com.apple.product-type.application";
@@ -311,6 +330,9 @@
 				Base,
 			);
 			mainGroup = C485D0FE2527A12E00CAD8BB;
+			packageReferences = (
+				C485D1F12528834200CAD8BB /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = C485D1082527A12E00CAD8BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,11 +384,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C485D1FA252883EA00CAD8BB /* Settings.swift in Sources */,
 				C485D1142527A13100CAD8BB /* Persistence.swift in Sources */,
 				C485D10D2527A12E00CAD8BB /* ContentView.swift in Sources */,
 				C485D1172527A13100CAD8BB /* EventCountdown.xcdatamodeld in Sources */,
 				C485D10B2527A12E00CAD8BB /* EventCountdownApp.swift in Sources */,
 				C485D1E52527F59F00CAD8BB /* SnapCarousel.swift in Sources */,
+				C485D2062528B51400CAD8BB /* EventItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +776,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C485D1F12528834200CAD8BB /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C485D1F22528834200CAD8BB /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C485D1F12528834200CAD8BB /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C485D1152527A13100CAD8BB /* EventCountdown.xcdatamodeld */ = {
