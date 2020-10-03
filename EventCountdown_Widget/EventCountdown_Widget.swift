@@ -40,6 +40,7 @@ struct SimpleEntry: TimelineEntry {
 
 struct EventCountdown_WidgetEntryView : View {
     var entry: Provider.Entry
+    
     let backgound = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
 
     var body: some View {

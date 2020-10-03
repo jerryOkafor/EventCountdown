@@ -25,6 +25,7 @@
 		C485D1FA252883EA00CAD8BB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1F9252883EA00CAD8BB /* Settings.swift */; };
 		C485D2062528B51400CAD8BB /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D2052528B51400CAD8BB /* EventItem.swift */; };
 		C48B19BE2528E5FB00025CCD /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = C48B19BD2528E5FB00025CCD /* DynamicColor */; };
+		C48B19C42528E91A00025CCD /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B19C32528E91A00025CCD /* NewEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		C485D1F9252883EA00CAD8BB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C485D2052528B51400CAD8BB /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
+		C48B19C32528E91A00025CCD /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			children = (
 				C485D1F9252883EA00CAD8BB /* Settings.swift */,
 				C485D2052528B51400CAD8BB /* EventItem.swift */,
+				C48B19C32528E91A00025CCD /* NewEvent.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				C485D10D2527A12E00CAD8BB /* ContentView.swift in Sources */,
 				C485D1172527A13100CAD8BB /* EventCountdown.xcdatamodeld in Sources */,
 				C485D10B2527A12E00CAD8BB /* EventCountdownApp.swift in Sources */,
+				C48B19C42528E91A00025CCD /* NewEvent.swift in Sources */,
 				C485D1E52527F59F00CAD8BB /* SnapCarousel.swift in Sources */,
 				C485D2062528B51400CAD8BB /* EventItem.swift in Sources */,
 			);

@@ -22,7 +22,7 @@ struct EventItem:View {
                     Spacer(minLength: 20)
                     Image(systemName:"chevron.right").resizable().frame(width: 10, height: 20)
                 }.frame(maxWidth:geo.size.width,maxHeight:80, alignment: .leading)
-                .padding(20)
+                .padding(15)
                 .background(RoundedRectangle(cornerRadius: 10.0,style: .continuous).stroke(Color.blue))
                 
                 HStack(spacing:20){
@@ -40,7 +40,8 @@ struct EventItem:View {
                 
                 .frame(maxWidth:.infinity, maxHeight: 35,alignment: .leading)
                 
-            }.padding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            }
+            .padding(/*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             .frame(width: geo.size.width,alignment:.top)
         }
     }

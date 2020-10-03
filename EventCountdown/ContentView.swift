@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var settingsActive:Bool = false
     @State var datePickerActive:Bool = true
     @State var colorPickerActive:Bool = false
+    @State var isNewEvent:Bool = false
     
     @State private var selectedDate = Date()
     @State var currentDate:String = "Oct 17th, 2020"
@@ -34,12 +35,17 @@ struct ContentView: View {
 
     var body: some View {
         let oringnalColor = DynamicColor(selectedColor)
-        let colors = [oringnalColor.lighter(),oringnalColor,oringnalColor.darkened()].map{Color($0)}
-        
+        let background = [oringnalColor.lighter(),oringnalColor,oringnalColor.darkened()].map{Color($0)}
+       
        return NavigationView{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: colors), startPoint: .topTrailing, endPoint: .bottomLeading)
+                LinearGradient(gradient: Gradient(colors: background), startPoint: .topTrailing, endPoint: .bottomLeading)
                     .edgesIgnoringSafeArea(.all)
+                
+                NavigationLink(
+                    destination: NewEvent(selectedColor: selectedColor),
+                    isActive: $isNewEvent,
+                    label: {})
                 VStack(alignment: .leading, spacing:10, content: {
                     //Event Data
                     eventDate(isInEditMode: isEditMode, currentDate: currentDate)
@@ -50,7 +56,7 @@ struct ContentView: View {
                             Text("13")
                                 .font(.system(size: 120, weight: .bold, design: .default))
                         }
-                        Text("days until ").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        Text("days until").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
                     
                     EventItem(selectedColor: $selectedColor)
@@ -66,7 +72,7 @@ struct ContentView: View {
                 
                 .frame(maxWidth:.infinity,maxHeight: .infinity,alignment: .leading)
                 .padding(.horizontal,20).padding(.top, 10)
-                .navigationTitle("Event Countdown")
+                .navigationTitle("Countdown")
             }
             .addPartialSheet()
         }
@@ -209,19 +215,21 @@ struct ContentView: View {
     }
 
     private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+        self.isNewEvent = true
+        
+//        withAnimation {
+//            let newItem = Item(context: viewContext)
+//            newItem.timestamp = Date()
+//
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
     }
 
     private func deleteItems(offsets: IndexSet) {
