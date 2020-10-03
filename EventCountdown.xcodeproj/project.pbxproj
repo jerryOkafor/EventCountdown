@@ -26,6 +26,7 @@
 		C485D2062528B51400CAD8BB /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D2052528B51400CAD8BB /* EventItem.swift */; };
 		C48B19BE2528E5FB00025CCD /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = C48B19BD2528E5FB00025CCD /* DynamicColor */; };
 		C48B19C42528E91A00025CCD /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B19C32528E91A00025CCD /* NewEvent.swift */; };
+		C48B19CC2528FA0F00025CCD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48B19CB2528FA0F00025CCD /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		C485D1F9252883EA00CAD8BB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C485D2052528B51400CAD8BB /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		C48B19C32528E91A00025CCD /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
+		C48B19CB2528FA0F00025CCD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,14 +157,11 @@
 		C485D1092527A12E00CAD8BB /* EventCountdown */ = {
 			isa = PBXGroup;
 			children = (
+				C48B19CA2528F9E600025CCD /* Assets */,
+				C48B19C92528F9CF00025CCD /* Data */,
 				C485D1F8252883DA00CAD8BB /* UI */,
-				C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */,
 				C485D10A2527A12E00CAD8BB /* EventCountdownApp.swift */,
-				C485D10C2527A12E00CAD8BB /* ContentView.swift */,
-				C485D10E2527A13100CAD8BB /* Assets.xcassets */,
-				C485D1132527A13100CAD8BB /* Persistence.swift */,
 				C485D1182527A13100CAD8BB /* Info.plist */,
-				C485D1152527A13100CAD8BB /* EventCountdown.xcdatamodeld */,
 				C485D1102527A13100CAD8BB /* Preview Content */,
 			);
 			path = EventCountdown;
@@ -216,11 +215,31 @@
 		C485D1F8252883DA00CAD8BB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */,
+				C485D10C2527A12E00CAD8BB /* ContentView.swift */,
 				C485D1F9252883EA00CAD8BB /* Settings.swift */,
 				C485D2052528B51400CAD8BB /* EventItem.swift */,
 				C48B19C32528E91A00025CCD /* NewEvent.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		C48B19C92528F9CF00025CCD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C485D1152527A13100CAD8BB /* EventCountdown.xcdatamodeld */,
+				C485D1132527A13100CAD8BB /* Persistence.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C48B19CA2528F9E600025CCD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C485D10E2527A13100CAD8BB /* Assets.xcassets */,
+				C48B19CB2528FA0F00025CCD /* Colors.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48B19CC2528FA0F00025CCD /* Colors.xcassets in Resources */,
 				C485D1122527A13100CAD8BB /* Preview Assets.xcassets in Resources */,
 				C485D10F2527A13100CAD8BB /* Assets.xcassets in Resources */,
 			);
