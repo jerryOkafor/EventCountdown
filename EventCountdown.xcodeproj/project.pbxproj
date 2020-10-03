@@ -15,6 +15,12 @@
 		C485D1172527A13100CAD8BB /* EventCountdown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C485D1152527A13100CAD8BB /* EventCountdown.xcdatamodeld */; };
 		C485D1222527A13100CAD8BB /* EventCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1212527A13100CAD8BB /* EventCountdownTests.swift */; };
 		C485D12D2527A13100CAD8BB /* EventCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D12C2527A13100CAD8BB /* EventCountdownUITests.swift */; };
+		C485D1C42527A84E00CAD8BB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C485D1C32527A84E00CAD8BB /* WidgetKit.framework */; };
+		C485D1C62527A84E00CAD8BB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C485D1C52527A84E00CAD8BB /* SwiftUI.framework */; };
+		C485D1C92527A84E00CAD8BB /* EventCountdown_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1C82527A84E00CAD8BB /* EventCountdown_Widget.swift */; };
+		C485D1CB2527A85000CAD8BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C485D1CA2527A85000CAD8BB /* Assets.xcassets */; };
+		C485D1CF2527A85000CAD8BB /* EventCountdown_WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C485D1C12527A84E00CAD8BB /* EventCountdown_WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C485D1E52527F59F00CAD8BB /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +38,28 @@
 			remoteGlobalIDString = C485D1062527A12E00CAD8BB;
 			remoteInfo = EventCountdown;
 		};
+		C485D1CD2527A85000CAD8BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C485D0FF2527A12E00CAD8BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C485D1C02527A84E00CAD8BB;
+			remoteInfo = EventCountdown_WidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C485D1D02527A85000CAD8BB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C485D1CF2527A85000CAD8BB /* EventCountdown_WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C485D1072527A12E00CAD8BB /* EventCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +76,13 @@
 		C485D1282527A13100CAD8BB /* EventCountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventCountdownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C485D12C2527A13100CAD8BB /* EventCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCountdownUITests.swift; sourceTree = "<group>"; };
 		C485D12E2527A13100CAD8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C485D1C12527A84E00CAD8BB /* EventCountdown_WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EventCountdown_WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C485D1C32527A84E00CAD8BB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		C485D1C52527A84E00CAD8BB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		C485D1C82527A84E00CAD8BB /* EventCountdown_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCountdown_Widget.swift; sourceTree = "<group>"; };
+		C485D1CA2527A85000CAD8BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C485D1CC2527A85000CAD8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +107,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C485D1BE2527A84E00CAD8BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C485D1C62527A84E00CAD8BB /* SwiftUI.framework in Frameworks */,
+				C485D1C42527A84E00CAD8BB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +125,8 @@
 				C485D1092527A12E00CAD8BB /* EventCountdown */,
 				C485D1202527A13100CAD8BB /* EventCountdownTests */,
 				C485D12B2527A13100CAD8BB /* EventCountdownUITests */,
+				C485D1C72527A84E00CAD8BB /* EventCountdown_Widget */,
+				C485D1C22527A84E00CAD8BB /* Frameworks */,
 				C485D1082527A12E00CAD8BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +137,7 @@
 				C485D1072527A12E00CAD8BB /* EventCountdown.app */,
 				C485D11D2527A13100CAD8BB /* EventCountdownTests.xctest */,
 				C485D1282527A13100CAD8BB /* EventCountdownUITests.xctest */,
+				C485D1C12527A84E00CAD8BB /* EventCountdown_WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +145,7 @@
 		C485D1092527A12E00CAD8BB /* EventCountdown */ = {
 			isa = PBXGroup;
 			children = (
+				C485D1E42527F59F00CAD8BB /* SnapCarousel.swift */,
 				C485D10A2527A12E00CAD8BB /* EventCountdownApp.swift */,
 				C485D10C2527A12E00CAD8BB /* ContentView.swift */,
 				C485D10E2527A13100CAD8BB /* Assets.xcassets */,
@@ -136,6 +183,25 @@
 			path = EventCountdownUITests;
 			sourceTree = "<group>";
 		};
+		C485D1C22527A84E00CAD8BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C485D1C32527A84E00CAD8BB /* WidgetKit.framework */,
+				C485D1C52527A84E00CAD8BB /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C485D1C72527A84E00CAD8BB /* EventCountdown_Widget */ = {
+			isa = PBXGroup;
+			children = (
+				C485D1C82527A84E00CAD8BB /* EventCountdown_Widget.swift */,
+				C485D1CA2527A85000CAD8BB /* Assets.xcassets */,
+				C485D1CC2527A85000CAD8BB /* Info.plist */,
+			);
+			path = EventCountdown_Widget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,10 +212,12 @@
 				C485D1032527A12E00CAD8BB /* Sources */,
 				C485D1042527A12E00CAD8BB /* Frameworks */,
 				C485D1052527A12E00CAD8BB /* Resources */,
+				C485D1D02527A85000CAD8BB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C485D1CE2527A85000CAD8BB /* PBXTargetDependency */,
 			);
 			name = EventCountdown;
 			productName = EventCountdown;
@@ -192,6 +260,23 @@
 			productReference = C485D1282527A13100CAD8BB /* EventCountdownUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C485D1C02527A84E00CAD8BB /* EventCountdown_WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C485D1D32527A85000CAD8BB /* Build configuration list for PBXNativeTarget "EventCountdown_WidgetExtension" */;
+			buildPhases = (
+				C485D1BD2527A84E00CAD8BB /* Sources */,
+				C485D1BE2527A84E00CAD8BB /* Frameworks */,
+				C485D1BF2527A84E00CAD8BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventCountdown_WidgetExtension;
+			productName = EventCountdown_WidgetExtension;
+			productReference = C485D1C12527A84E00CAD8BB /* EventCountdown_WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +297,9 @@
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = C485D1062527A12E00CAD8BB;
 					};
+					C485D1C02527A84E00CAD8BB = {
+						CreatedOnToolsVersion = 12.0;
+					};
 				};
 			};
 			buildConfigurationList = C485D1022527A12E00CAD8BB /* Build configuration list for PBXProject "EventCountdown" */;
@@ -230,6 +318,7 @@
 				C485D1062527A12E00CAD8BB /* EventCountdown */,
 				C485D11C2527A13100CAD8BB /* EventCountdownTests */,
 				C485D1272527A13100CAD8BB /* EventCountdownUITests */,
+				C485D1C02527A84E00CAD8BB /* EventCountdown_WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +347,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C485D1BF2527A84E00CAD8BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C485D1CB2527A85000CAD8BB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,6 +366,7 @@
 				C485D10D2527A12E00CAD8BB /* ContentView.swift in Sources */,
 				C485D1172527A13100CAD8BB /* EventCountdown.xcdatamodeld in Sources */,
 				C485D10B2527A12E00CAD8BB /* EventCountdownApp.swift in Sources */,
+				C485D1E52527F59F00CAD8BB /* SnapCarousel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +386,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C485D1BD2527A84E00CAD8BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C485D1C92527A84E00CAD8BB /* EventCountdown_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -300,6 +406,11 @@
 			isa = PBXTargetDependency;
 			target = C485D1062527A12E00CAD8BB /* EventCountdown */;
 			targetProxy = C485D1292527A13100CAD8BB /* PBXContainerItemProxy */;
+		};
+		C485D1CE2527A85000CAD8BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C485D1C02527A84E00CAD8BB /* EventCountdown_WidgetExtension */;
+			targetProxy = C485D1CD2527A85000CAD8BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -423,6 +534,7 @@
 		C485D1322527A13100CAD8BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -435,7 +547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.jerryhanks.EventCountdown;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jerryhanks.countdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,6 +557,7 @@
 		C485D1332527A13100CAD8BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -457,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.jerryhanks.EventCountdown;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jerryhanks.countdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,6 +661,48 @@
 			};
 			name = Release;
 		};
+		C485D1D12527A85000CAD8BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45ZGNV2NAU;
+				INFOPLIST_FILE = EventCountdown_Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.jerryhanks.countdown.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C485D1D22527A85000CAD8BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45ZGNV2NAU;
+				INFOPLIST_FILE = EventCountdown_Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.jerryhanks.countdown.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -583,6 +738,15 @@
 			buildConfigurations = (
 				C485D1382527A13100CAD8BB /* Debug */,
 				C485D1392527A13100CAD8BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C485D1D32527A85000CAD8BB /* Build configuration list for PBXNativeTarget "EventCountdown_WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C485D1D12527A85000CAD8BB /* Debug */,
+				C485D1D22527A85000CAD8BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
