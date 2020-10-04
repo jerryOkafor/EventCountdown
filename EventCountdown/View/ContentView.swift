@@ -5,7 +5,6 @@
 //  Created by Jerry Hanks on 02/10/2020.
 //
 
-import CoreData
 import DynamicColor
 import PartialSheet
 import SwiftUI
@@ -21,31 +20,30 @@ struct ContentView: View {
     @State var currentDate: String = "Oct 17th, 2020"
     @State private var selectedColor = Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
 
-    @Environment(\.managedObjectContext) private var viewContext
+    //    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var sheetManager: PartialSheetManager
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
+    @ObservedObject var viewModel = EventsViewModel()
 
 
-    private var items: FetchedResults<Item>
-
+    //    private var items: FetchedResults<Item>
 
     var body: some View {
         let oringnalColor = DynamicColor(selectedColor)
         let background = [oringnalColor.lighter(), oringnalColor, oringnalColor.darkened()].map { Color($0) }
 
-       return NavigationView {
+        return NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: background), startPoint: .topTrailing, endPoint: .bottomLeading)
+                LinearGradient(gradient: Gradient(colors: background),
+                               startPoint: .topTrailing,
+                               endPoint: .bottomLeading)
                     .edgesIgnoringSafeArea(.all)
 
                 NavigationLink(
                     destination: NewEvent(selectedColor: selectedColor),
-                    isActive: $isNewEvent,
-                    label: {})
-                VStack(alignment: .leading, spacing: 10, content: {
+                    isActive: $isNewEvent) {}
+
+                VStack(alignment: .leading, spacing: 10) {
                     //Event Data
                     eventDate(isInEditMode: isEditMode, currentDate: currentDate)
 
@@ -67,62 +65,60 @@ struct ContentView: View {
                     } else {
                         editButtons()
                     }
-                })
-
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding(.horizontal, 20).padding(.top, 10)
                 .navigationTitle("Countdown")
             }
             .addPartialSheet()
-       }
+        }
 
 
-//        NavigationView{
-//            ZStack{
-//                VStack(alignment:.leading, spacing:10){
+        //        NavigationView{
+        //            ZStack{
+        //                VStack(alignment:.leading, spacing:10){
 
 
-                    //courosel
-    //                HStack{
-    //                    ColorPicker("", selection: $bgColor).labelsHidden()
-    //                }
+        //courosel
+        //                HStack{
+        //                    ColorPicker("", selection: $bgColor).labelsHidden()
+        //                }
 
-                    //control
+        //control
 
-    //                DatePicker(selection: $selectedDate,displayedComponents: .date) {
-    //                    Text("Event Date")
-    //                        .textCase(.uppercase)
-    //                        .font(.subheadline)
-    //                        .frame(alignment: .leading)
-    //                }.datePickerStyle(GraphicalDatePickerStyle())
+        //                DatePicker(selection: $selectedDate,displayedComponents: .date) {
+        //                    Text("Event Date")
+        //                        .textCase(.uppercase)
+        //                        .font(.subheadline)
+        //                        .frame(alignment: .leading)
+        //                }.datePickerStyle(GraphicalDatePickerStyle())
 
 
-//                }.padding()
-//                .navigationTitle("Event Countdown")
-//
+        //                }.padding()
+        //                .navigationTitle("Event Countdown")
+        //
 
-    //            .background(Color.blue)
-    //            List {
-    //                ForEach(items) { item in
-    //                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-    //                }
-    //                .onDelete(perform: deleteItems)
-    //            }
-    //            .toolbar {
-    //                HStack{
-    //                    #if os(iOS)
-    //                    EditButton()
-    //                    #endif
-    //
-    //                    Button(action: addItem) {
-    //                        Label("Add Item", systemImage: "plus")
-    //                    }
-    //                }
-    //            }
-//            }.ignoresSafeArea()
-//            .background(backgound)
-//
-//        }
+        //            .background(Color.blue)
+        //            List {
+        //                ForEach(items) { item in
+        //                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        //                }
+        //                .onDelete(perform: deleteItems)
+        //            }
+        //            .toolbar {
+        //                HStack{
+        //                    #if os(iOS)
+        //                    EditButton()
+        //                    #endif
+        //
+        //                    Button(action: addItem) {
+        //                        Label("Add Item", systemImage: "plus")
+        //                    }
+        //                }
+        //            }
+        //            }.ignoresSafeArea()
+        //            .background(backgound)
+        //
+        //        }
 
 
     }
@@ -138,7 +134,7 @@ struct ContentView: View {
 
             }
         }, label: {
-            HStack(alignment: .center, content: {
+            HStack(alignment: .center) {
                 VStack(alignment: .leading) {
                     Text("Event Date")
                         .textCase(.uppercase)
@@ -151,7 +147,7 @@ struct ContentView: View {
                 Spacer(minLength: 20)
                 Image(systemName: "chevron.right").resizable().frame(width: 10, height: 20)
 
-            })
+            }
         })
         .foregroundColor(.white)
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
@@ -215,34 +211,34 @@ struct ContentView: View {
     private func addItem() {
         self.isNewEvent = true
 
-//        withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
+        //        withAnimation {
+        //            let newItem = Item(context: viewContext)
+        //            newItem.timestamp = Date()
+        //
+        //            do {
+        //                try viewContext.save()
+        //            } catch {
+        //                // Replace this implementation with code to handle the error appropriately.
+        //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        //                let nsError = error as NSError
+        //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        //            }
+        //        }
     }
 
     private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+        //        withAnimation {
+        //            offsets.map { items[$0] }.forEach(viewContext.delete)
+        //
+        //            do {
+        //                try viewContext.save()
+        //            } catch {
+        //                // Replace this implementation with code to handle the error appropriately.
+        //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        //                let nsError = error as NSError
+        //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        //            }
+        //        }
     }
 }
 
@@ -255,6 +251,7 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+        //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -10,6 +10,7 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
+    //Preview on xcode
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
@@ -28,6 +29,13 @@ struct PersistenceController {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
 
+        return result
+    }()
+
+    //Testing
+    static var testing: PersistenceController = {
+        let result = PersistenceController(inMemory: true)
+        let viewContext = result.container.viewContext
         return result
     }()
 
