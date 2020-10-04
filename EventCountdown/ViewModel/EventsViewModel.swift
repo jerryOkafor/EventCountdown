@@ -14,32 +14,24 @@ class EventsViewModel: ObservableObject {
     @Published var events = [EventItem]()
     let fileManager = FileManager.default
     //get url for the users home directory
-    lazy var documentsURL: URL = {
-        fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+    lazy var documentsURL: URL? = {
+        fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
     }()
 
     //get the document url as a string
-    lazy var documentPath: String = {
-        documentsURL.path
+    lazy var documentPath: String? = {
+        documentsURL?.path
     }()
 
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
 //        animation: .default)
-
-    init() {
-        print("\(documentsURL)")
-        print("\(documentPath)")
-        print("\(photoFilePath(name: "testPhoto"))")
-
-    }
-
-
+    
     /// Generate a file path for the given file name
     /// - Parameter name: Name of the file to be generated.
     /// - Returns: URL generated
-    func photoFilePath(name: String) -> URL {
-        documentsURL.appendingPathComponent("\(String(name)).png")
+    func photoFilePath(name: String) -> URL? {
+        documentsURL?.appendingPathComponent("\(String(name)).png")
     }
 
 
@@ -60,11 +52,15 @@ class EventsViewModel: ObservableObject {
     /// Clear all saved files
     /// - Throws: Erorr
     func clearImageCache() throws {
+        guard let docPath = documentPath else {
+            return
+        }
+        
         do {
-            let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
+            let files = try fileManager.contentsOfDirectory(atPath: "\(docPath)")
 
             for file in files {
-                try fileManager.removeItem(atPath: "\(documentPath)\(file)")
+                try fileManager.removeItem(atPath: "\(docPath)\(file)")
             }
         } catch {
             throw error
