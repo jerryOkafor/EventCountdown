@@ -21,9 +21,10 @@ struct Settings: View {
                 Toggle("Cycle Countdows", isOn: $isOn).padding()
                     .labelStyle(DefaultLabelStyle())
 
+
             Button(action: {
                 print("Delete tapped!")
-            }) {
+            }, label: {
                 HStack {
                     Image(systemName: "phone")
                         .font(.title)
@@ -34,13 +35,16 @@ struct Settings: View {
                 .frame(width: 300)
                 .padding(.all, 10)
                 .foregroundColor(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]),
+                                   startPoint: .leading,
+                                   endPoint: .trailing))
                 .cornerRadius(40)
-            }
+            })
 
             Button(action: {
                 print("Delete tapped!")
-            }) {
+            }, label: {
                 HStack {
                     Image(systemName: "hand.thumbsup")
                         .font(.title)
@@ -51,9 +55,12 @@ struct Settings: View {
                 .frame(width: 300)
                 .padding(.all, 10)
                 .foregroundColor(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.gray]), startPoint: .leading, endPoint: .trailing))
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color.blue, Color.gray]),
+                                   startPoint: .leading,
+                                   endPoint: .trailing))
                 .cornerRadius(40)
-            }
+            })
         }
     }
 }

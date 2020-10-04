@@ -35,7 +35,8 @@ struct NewEvent: View {
             VStack(alignment: .center, spacing: 20) {
                 Spacer().frame(height: 20)
 
-                DatePicker("Select Event Date", selection: $date, displayedComponents: .date).datePickerStyle(CompactDatePickerStyle())
+                DatePicker("Select Event Date", selection: $date, displayedComponents: .date)
+                    .datePickerStyle(CompactDatePickerStyle())
 
                 ColorPicker("Select Event Color", selection: $selectedColor).labelStyle(DefaultLabelStyle())
 
@@ -49,7 +50,7 @@ struct NewEvent: View {
 
                 Button(action: {
                     print("Delete tapped!")
-                }) {
+                }, label: {
                     Text("Save Event")
                         .fontWeight(.medium)
                         .font(.title)
@@ -57,9 +58,11 @@ struct NewEvent: View {
                         .frame(width: 300)
                         .padding(.all, 10)
                         .foregroundColor(.white)
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]),
+                                                   startPoint: .leading,
+                                                   endPoint: .trailing))
                         .cornerRadius(10)
-                }
+                })
 
                 Spacer()
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

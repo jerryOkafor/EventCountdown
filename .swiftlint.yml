@@ -1,5 +1,8 @@
 disabled_rules: # rule identifiers to exclude from running
   - type_name # swiftUI previews use
+  - trailing_whitespace # I like trailing white space a lot.
+  - todo
+  - prefixed_toplevel_constant
 opt_in_rules: # some rules are only opt-in
   - anyobject_protocol
   - array_init

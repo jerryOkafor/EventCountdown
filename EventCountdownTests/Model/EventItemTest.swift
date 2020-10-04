@@ -13,6 +13,7 @@ class EventItemTes: XCTestCase {
     var persistence: PersistenceController!
     var persistenceContainer: NSPersistentContainer!
 
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         self.persistence = PersistenceController.preview
@@ -33,8 +34,8 @@ class EventItemTes: XCTestCase {
         fetchReqquest.fetchLimit = 1
         fetchReqquest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
         let items = try context.fetch(fetchReqquest)
-        
-        let  fetchedItem  = items.first as! NSManagedObject
+
+        let  fetchedItem = items.first as! NSManagedObject
         XCTAssertEqual(fetchedItem.value(forKey: "id") as! UUID, id)
     }
 

@@ -72,7 +72,8 @@ struct Carousel<Items: View>: View {
 
     @EnvironmentObject var UIState: UIStateModel
 
-    @inlinable public init(
+    @inlinable
+    internal init(
         numberOfItems: CGFloat,
         spacing: CGFloat,
         widthOfHiddenCards: CGFloat,
@@ -109,7 +110,8 @@ struct Carousel<Items: View>: View {
         .gesture(DragGesture().updating($isDetectingLongPress) { currentState, _, _ in
             self.UIState.screenDrag = Float(currentState.translation.width)
 
-        }.onEnded { value in
+        }
+        .onEnded { value in
             self.UIState.screenDrag = 0
 
             if value.translation.width < -50 {
@@ -131,7 +133,9 @@ struct Canvas<Content: View>: View {
     let content: Content
     @EnvironmentObject var UIState: UIStateModel
 
-    @inlinable init(@ViewBuilder _ content: () -> Content) {
+    @inlinable
+    internal init(
+        @ViewBuilder _ content: () -> Content) {
         self.content = content()
     }
 
@@ -150,7 +154,8 @@ struct CarouselItem<Content: View>: View {
     var id: Int
     var content: Content
 
-    @inlinable public init(
+    @inlinable
+    internal init(
         id: Int,
         spacing: CGFloat,
         widthOfHiddenCards: CGFloat,
@@ -165,7 +170,9 @@ struct CarouselItem<Content: View>: View {
 
     var body: some View {
         content
-            .frame(width: cardWidth, height: id == UIState.activeCard ? cardHeight : cardHeight - 60, alignment: .center)
+            .frame(width: cardWidth,
+                   height: id == UIState.activeCard ? cardHeight : cardHeight - 60,
+                   alignment: .center)
     }
 }
 

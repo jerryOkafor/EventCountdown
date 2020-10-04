@@ -66,7 +66,8 @@ struct ContentView: View {
                         editButtons()
                     }
                 }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .padding(.horizontal, 20).padding(.top, 10)
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
                 .navigationTitle("Countdown")
             }
             .addPartialSheet()
@@ -127,7 +128,8 @@ struct ContentView: View {
         Button(action: {
             self.sheetManager.showPartialSheet {
                 Section {
-                    DatePicker("", selection: $selectedDate, displayedComponents: .date) .datePickerStyle(GraphicalDatePickerStyle())
+                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
 
                 }.padding(.vertical, 10)
@@ -175,13 +177,12 @@ struct ContentView: View {
     }
 
     private func button(action: @escaping () -> Void, title: String, icon: String)-> some View {
-        Button(action: action, label: {
-
+        Button(action: action) {
             VStack(alignment: .center, spacing: 10) {
                 Image(systemName: icon).font(.largeTitle).foregroundColor(.white)
                 Text(title).font(.caption).foregroundColor(.white)
             }.padding()
-        }).frame(width: 100, height: 80, alignment: .center)
+        }.frame(width: 100, height: 80, alignment: .center)
     }
 
     private func settings() {

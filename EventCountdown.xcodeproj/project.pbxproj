@@ -31,6 +31,8 @@
 		C48B1A0825297DDF00025CCD /* EventItemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A0725297DDF00025CCD /* EventItemTest.swift */; };
 		C48B1A1325297E2000025CCD /* MockEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A1225297E2000025CCD /* MockEventItem.swift */; };
 		C48B1A1425297E2000025CCD /* MockEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A1225297E2000025CCD /* MockEventItem.swift */; };
+		C48B1A232529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
+		C48B1A242529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,7 @@
 		C48B19FB2529636900025CCD /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		C48B1A0725297DDF00025CCD /* EventItemTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemTest.swift; sourceTree = "<group>"; };
 		C48B1A1225297E2000025CCD /* MockEventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEventItem.swift; sourceTree = "<group>"; };
+		C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,9 +274,18 @@
 		C48B1A1125297DFB00025CCD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C48B1A212529CF6700025CCD /* Utils */,
 				C48B1A1225297E2000025CCD /* MockEventItem.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C48B1A212529CF6700025CCD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48B1A232529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */,
 				C485D1222527A13100CAD8BB /* EventCountdownTests.swift in Sources */,
 				C48B1A1325297E2000025CCD /* MockEventItem.swift in Sources */,
 				C48B1A0825297DDF00025CCD /* EventItemTest.swift in Sources */,
@@ -493,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48B1A242529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */,
 				C485D12D2527A13100CAD8BB /* EventCountdownUITests.swift in Sources */,
 				C48B1A1425297E2000025CCD /* MockEventItem.swift in Sources */,
 			);
