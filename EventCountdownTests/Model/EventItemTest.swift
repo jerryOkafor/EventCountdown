@@ -35,8 +35,8 @@ class EventItemTes: XCTestCase {
         fetchReqquest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
         let items = try context.fetch(fetchReqquest)
 
-        let  fetchedItem = items.first as! NSManagedObject
-        XCTAssertEqual(fetchedItem.value(forKey: "id") as! UUID, id)
+        let  fetchedItem = try require(items.first as? NSManagedObject)
+        XCTAssertEqual(fetchedItem.value(forKey: "id") as? UUID, id)
     }
 
     override func tearDownWithError() throws {
