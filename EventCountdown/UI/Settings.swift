@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct Settings:View {
-    @Binding var isOn:Bool
-    
-    var body: some View{
-        VStack(spacing:20){
+struct Settings: View {
+    @Binding var isOn: Bool
+
+    var body: some View {
+        VStack(spacing: 20) {
             Text("Widget Setting")
                 .fontWeight(.medium)
                 .font(.title)
-                .frame(maxWidth: .infinity,alignment:.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
-            
+
                 Toggle("Cycle Countdows", isOn: $isOn).padding()
                     .labelStyle(DefaultLabelStyle())
-            
+
             Button(action: {
                 print("Delete tapped!")
             }) {
@@ -31,13 +31,13 @@ struct Settings:View {
                         .fontWeight(.medium)
                         .font(.title)
                 }
-                .frame(width:300)
-                .padding(.all,10)
+                .frame(width: 300)
+                .padding(.all, 10)
                 .foregroundColor(.white)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(40)
             }
-            
+
             Button(action: {
                 print("Delete tapped!")
             }) {
@@ -48,8 +48,8 @@ struct Settings:View {
                         .fontWeight(.medium)
                         .font(.title)
                 }
-                .frame(width:300)
-                .padding(.all,10)
+                .frame(width: 300)
+                .padding(.all, 10)
                 .foregroundColor(.white)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.gray]), startPoint: .leading, endPoint: .trailing))
                 .cornerRadius(40)
@@ -59,8 +59,8 @@ struct Settings:View {
 }
 
 struct Settins_Preview: PreviewProvider {
-    
-    static var previews: some View{
+
+    static var previews: some View {
         Settings(isOn: .constant(true))
     }
 }

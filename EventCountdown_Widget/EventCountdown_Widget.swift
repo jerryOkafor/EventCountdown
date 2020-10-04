@@ -5,20 +5,20 @@
 //  Created by Jerry Hanks on 02/10/2020.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date())
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         let entry = SimpleEntry(date: Date())
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
@@ -38,32 +38,31 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
-struct EventCountdown_WidgetEntryView : View {
+struct EventCountdown_WidgetEntryView: View {
     var entry: Provider.Entry
-    
+
     let backgound = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.red]), startPoint: .topTrailing, endPoint: .bottomLeading)
 
     var body: some View {
         Text(entry.date, style: .time)
-            .frame(maxWidth:.infinity, maxHeight:.infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(backgound)
 
     }
 }
 
 
-
 @main
 struct EventCountdown_Widget: Widget {
     let kind: String = "EventCountdown_Widget"
-    
+
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             EventCountdown_WidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
-        
+
     }
 }
 

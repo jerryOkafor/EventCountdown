@@ -5,17 +5,21 @@
 //  Created by Jerry Hanks on 02/10/2020.
 //
 
-import XCTest
 @testable import EventCountdown
+import XCTest
 
 class EventCountdownTests: XCTestCase {
+    var persistence: PersistenceController!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.persistence = PersistenceController.preview
+
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.persistence = nil
     }
 
     func testExample() throws {
