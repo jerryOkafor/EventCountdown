@@ -28,11 +28,13 @@
 		C48B19C42528E91A00025CCD /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B19C32528E91A00025CCD /* NewEvent.swift */; };
 		C48B19CC2528FA0F00025CCD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48B19CB2528FA0F00025CCD /* Colors.xcassets */; };
 		C48B19FC2529636900025CCD /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B19FB2529636900025CCD /* EventsViewModel.swift */; };
-		C48B1A0825297DDF00025CCD /* CoreDataCRUDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A0725297DDF00025CCD /* CoreDataCRUDTest.swift */; };
+		C48B1A0825297DDF00025CCD /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A0725297DDF00025CCD /* CoreDataTest.swift */; };
 		C48B1A1325297E2000025CCD /* MockEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A1225297E2000025CCD /* MockEventItem.swift */; };
 		C48B1A1425297E2000025CCD /* MockEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A1225297E2000025CCD /* MockEventItem.swift */; };
-		C48B1A232529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
-		C48B1A242529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
+		C48B1A542529FC6000025CCD /* EventItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A532529FC6000025CCD /* EventItemTests.swift */; };
+		C48B1A652529FD8100025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
+		C48B1A6A2529FD8300025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
+		C48B1A752529FE3C00025CCD /* MockEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A1225297E2000025CCD /* MockEventItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,9 +102,10 @@
 		C48B19C32528E91A00025CCD /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
 		C48B19CB2528FA0F00025CCD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C48B19FB2529636900025CCD /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
-		C48B1A0725297DDF00025CCD /* CoreDataCRUDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCRUDTest.swift; sourceTree = "<group>"; };
+		C48B1A0725297DDF00025CCD /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		C48B1A1225297E2000025CCD /* MockEventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEventItem.swift; sourceTree = "<group>"; };
 		C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		C48B1A532529FC6000025CCD /* EventItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +150,8 @@
 				C485D1092527A12E00CAD8BB /* EventCountdown */,
 				C485D1202527A13100CAD8BB /* EventCountdownTests */,
 				C485D12B2527A13100CAD8BB /* EventCountdownUITests */,
-				C48B1A1125297DFB00025CCD /* Common */,
+				C48B1A732529FE2300025CCD /* Common */,
+				C48B1A1125297DFB00025CCD /* CommonTest */,
 				C485D1C72527A84E00CAD8BB /* EventCountdown_Widget */,
 				C485D1C22527A84E00CAD8BB /* Frameworks */,
 				C485D1082527A12E00CAD8BB /* Products */,
@@ -266,18 +270,18 @@
 		C48B1A0625297DB400025CCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C48B1A0725297DDF00025CCD /* CoreDataCRUDTest.swift */,
+				C48B1A0725297DDF00025CCD /* CoreDataTest.swift */,
+				C48B1A532529FC6000025CCD /* EventItemTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C48B1A1125297DFB00025CCD /* Common */ = {
+		C48B1A1125297DFB00025CCD /* CommonTest */ = {
 			isa = PBXGroup;
 			children = (
 				C48B1A212529CF6700025CCD /* Utils */,
-				C48B1A1225297E2000025CCD /* MockEventItem.swift */,
 			);
-			path = Common;
+			path = CommonTest;
 			sourceTree = "<group>";
 		};
 		C48B1A212529CF6700025CCD /* Utils */ = {
@@ -286,6 +290,22 @@
 				C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C48B1A732529FE2300025CCD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C48B1A742529FE3500025CCD /* Mock */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C48B1A742529FE3500025CCD /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C48B1A1225297E2000025CCD /* MockEventItem.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,6 +506,7 @@
 				C485D10B2527A12E00CAD8BB /* EventCountdownApp.swift in Sources */,
 				C48B19C42528E91A00025CCD /* NewEvent.swift in Sources */,
 				C48B19FC2529636900025CCD /* EventsViewModel.swift in Sources */,
+				C48B1A752529FE3C00025CCD /* MockEventItem.swift in Sources */,
 				C485D1E52527F59F00CAD8BB /* SnapCarousel.swift in Sources */,
 				C485D2062528B51400CAD8BB /* EventItem.swift in Sources */,
 			);
@@ -495,10 +516,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C48B1A232529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */,
 				C485D1222527A13100CAD8BB /* EventCountdownTests.swift in Sources */,
 				C48B1A1325297E2000025CCD /* MockEventItem.swift in Sources */,
-				C48B1A0825297DDF00025CCD /* CoreDataCRUDTest.swift in Sources */,
+				C48B1A0825297DDF00025CCD /* CoreDataTest.swift in Sources */,
+				C48B1A542529FC6000025CCD /* EventItemTests.swift in Sources */,
+				C48B1A652529FD8100025CCD /* XCTestCase+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C48B1A242529CF7E00025CCD /* XCTestCase+Extension.swift in Sources */,
+				C48B1A6A2529FD8300025CCD /* XCTestCase+Extension.swift in Sources */,
 				C485D12D2527A13100CAD8BB /* EventCountdownUITests.swift in Sources */,
 				C48B1A1425297E2000025CCD /* MockEventItem.swift in Sources */,
 			);

@@ -47,10 +47,10 @@ struct PersistenceController {
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
             
-            let description = NSPersistentStoreDescription()
-            description.type = NSInMemoryStoreType
-            description.shouldAddStoreAsynchronously = false
-            container.persistentStoreDescriptions = [description]
+//            let description = NSPersistentStoreDescription()
+//            description.type = NSInMemoryStoreType
+//            description.shouldAddStoreAsynchronously = false
+//            container.persistentStoreDescriptions = [description]
         }
         
     }
