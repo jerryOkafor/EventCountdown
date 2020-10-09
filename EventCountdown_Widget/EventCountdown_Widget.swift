@@ -48,10 +48,28 @@ struct EventCountdown_WidgetEntryView: View {
                                    endPoint: .bottomLeading)
 
     var body: some View {
-        Text(entry.date, style: .time)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(backgound)
-
+        
+        VStack(alignment: .leading) {
+            HStack {
+                Text("13")
+                    .font(.system(size: 60, weight: .bold, design: .default))
+                    .foregroundColor(.white)
+            }
+            
+            Text("days left")
+                .font(.subheadline)
+                .foregroundColor(.white)
+            
+            Spacer()
+            
+            Text("Birthday")
+                .font(.system(size: 30, weight: .bold, design: .default))
+                .foregroundColor(.white)
+            
+        }.frame(maxWidth:.infinity,maxHeight: .infinity)
+        .padding(.vertical, 20)
+        .background(backgound)
+        
     }
 }
 

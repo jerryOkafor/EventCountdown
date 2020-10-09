@@ -99,5 +99,28 @@
 			<integer>5</integer>
 		</dict>
 	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C485D1062527A12E00CAD8BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C485D11C2527A13100CAD8BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C485D1272527A13100CAD8BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C485D1C02527A84E00CAD8BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
