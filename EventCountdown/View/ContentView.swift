@@ -71,6 +71,8 @@ struct ContentView: View {
                 .navigationTitle("Countdown")
             }
             .addPartialSheet()
+        }.onOpenURL{url in
+            print("\(url)")
         }
 
 

@@ -66,9 +66,10 @@ struct EventCountdown_WidgetEntryView: View {
                 .font(.system(size: 30, weight: .bold, design: .default))
                 .foregroundColor(.white)
             
-        }.frame(maxWidth:.infinity,maxHeight: .infinity)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.vertical, 20)
         .background(backgound)
+        .widgetURL(URL(string: "countDown://hello_friends"))
         
     }
 }

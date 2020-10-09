@@ -10,11 +10,18 @@ import Foundation
 import SwiftUI
 
 
-struct CountdoenEvent {
+struct Event {
+    let id:UUID
     let date: Data
     let title: String
     let color: Color
     let widgetPhoto: Image
+    
+    var url:URL {
+        get{
+            return URL(string: "countDown://\(id.uuidString)")!
+        }
+    }
 }
 
 
