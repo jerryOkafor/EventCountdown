@@ -13,7 +13,6 @@
 		C485D1122527A13100CAD8BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C485D1112527A13100CAD8BB /* Preview Assets.xcassets */; };
 		C485D1142527A13100CAD8BB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1132527A13100CAD8BB /* Persistence.swift */; };
 		C485D1172527A13100CAD8BB /* EventCountdown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C485D1152527A13100CAD8BB /* EventCountdown.xcdatamodeld */; };
-		C485D1222527A13100CAD8BB /* EventCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D1212527A13100CAD8BB /* EventCountdownTests.swift */; };
 		C485D12D2527A13100CAD8BB /* EventCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485D12C2527A13100CAD8BB /* EventCountdownUITests.swift */; };
 		C485D1C42527A84E00CAD8BB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C485D1C32527A84E00CAD8BB /* WidgetKit.framework */; };
 		C485D1C62527A84E00CAD8BB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C485D1C52527A84E00CAD8BB /* SwiftUI.framework */; };
@@ -85,7 +84,6 @@
 		C485D1162527A13100CAD8BB /* EventCountdown.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventCountdown.xcdatamodel; sourceTree = "<group>"; };
 		C485D1182527A13100CAD8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C485D11D2527A13100CAD8BB /* EventCountdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventCountdownTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C485D1212527A13100CAD8BB /* EventCountdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCountdownTests.swift; sourceTree = "<group>"; };
 		C485D1232527A13100CAD8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C485D1282527A13100CAD8BB /* EventCountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventCountdownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C485D12C2527A13100CAD8BB /* EventCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCountdownUITests.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				C48B1A0625297DB400025CCD /* Model */,
-				C485D1212527A13100CAD8BB /* EventCountdownTests.swift */,
 				C485D1232527A13100CAD8BB /* Info.plist */,
 			);
 			path = EventCountdownTests;
@@ -516,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C485D1222527A13100CAD8BB /* EventCountdownTests.swift in Sources */,
 				C48B1A1325297E2000025CCD /* MockEventItem.swift in Sources */,
 				C48B1A0825297DDF00025CCD /* CoreDataTest.swift in Sources */,
 				C48B1A542529FC6000025CCD /* EventItemTests.swift in Sources */,

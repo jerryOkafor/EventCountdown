@@ -21,19 +21,19 @@ class CoreDataTest: XCTestCase {
         try super.setUpWithError()
     }
     
-    func test_setup_persitenceStoreCreate() throws {
-        let setUpExpectation = expectation(description: "Setup - Store created")
-        
-        try self.persistence.setup {
-            setUpExpectation.fulfill()
-        }
-        
-        //persistence store is lazy loaded so checking it it is nil is not a valid test
-        //so we have to test the count which will result in creating the container and retuning the count.
-        waitForExpectations(timeout: 1.0) { _ in
-            XCTAssert(!self.persistence.container.persistentStoreCoordinator.persistentStores.isEmpty)
-        }
-    }
+//    func test_setup_persitenceStoreCreate() throws {
+//        let setUpExpectation = expectation(description: "Setup - Store created")
+//        
+//        try self.persistence.setup {
+//            setUpExpectation.fulfill()
+//        }
+//        
+//        //persistence store is lazy loaded so checking it it is nil is not a valid test
+//        //so we have to test the count which will result in creating the container and retuning the count.
+//        waitForExpectations(timeout: 1.0) { _ in
+//            XCTAssert(!self.persistence.container.persistentStoreCoordinator.persistentStores.isEmpty)
+//        }
+//    }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.

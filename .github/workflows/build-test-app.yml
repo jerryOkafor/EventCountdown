@@ -1,0 +1,29 @@
+name: Build and Test EventCounter
+
+# This workflow is triggered on pushes to master, dev and feature branches
+on:
+    push:
+        branches:
+            - master
+            - dev
+            - feature/*
+jobs:
+    test:
+        name: Test
+        runs-on: macos-latest
+        strategy:
+            matrix:
+                destination:
+                    ["platform=iOS Simulator, OS=14.0.1, name=iPhone 8"]
+                xcode: ["/Applications/XCode_11.1.app/Contents/Developer"]
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Bundle Install
+              run: bundle install
+
+            - name: Unit tests
+              run: bundle exec fastlane tests
+                   

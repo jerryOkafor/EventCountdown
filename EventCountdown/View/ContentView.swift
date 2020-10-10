@@ -71,7 +71,7 @@ struct ContentView: View {
                 .navigationTitle("Countdown")
             }
             .addPartialSheet()
-        }.onOpenURL{url in
+        }.onOpenURL {url in
             print("\(url)")
         }
 
@@ -129,13 +129,22 @@ struct ContentView: View {
     private func eventDate(isInEditMode: Bool, currentDate: String) -> some View {
         Button(action: {
             self.sheetManager.showPartialSheet {
-                Section {
+                VStack(alignment: .center) {
                     DatePicker("", selection: $selectedDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Text("Button")
+                    })
+                    
+                }
+                .padding(.horizontal, 25)
+                .background(Color.red)
+//                .frame(width: 100, height: 100, alignment: .center)
+                .clipped()
 
-                }.padding(.vertical, 10)
-
+                
             }
         }, label: {
             HStack(alignment: .center) {
