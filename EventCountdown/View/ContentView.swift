@@ -134,7 +134,7 @@ struct ContentView: View {
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
                     
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: {}/*@END_MENU_TOKEN@*/, label: {
                         Text("Button")
                     })
                     

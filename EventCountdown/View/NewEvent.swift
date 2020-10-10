@@ -11,15 +11,15 @@ import SwiftUI
 
 
 struct Event {
-    let id:UUID
+    let id: UUID
     let date: Data
     let title: String
     let color: Color
     let widgetPhoto: Image
     
-    var url:URL {
-        get{
-            return URL(string: "countDown://\(id.uuidString)")!
+    var url: URL {
+        get {
+            URL(string: "countDown://\(id.uuidString)")!
         }
     }
 }
