@@ -140,8 +140,6 @@ struct ContentView: View {
                     
                 }
                 .padding(.horizontal, 25)
-                .background(Color.red)
-//                .frame(width: 100, height: 100, alignment: .center)
                 .clipped()
 
                 
