@@ -19,14 +19,9 @@ struct ContentView: View {
     @State private var selectedDate = Date()
     @State var currentDate: String = "Oct 17th, 2020"
     @State private var selectedColor = Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
-
-    //    @Environment(\.managedObjectContext) private var viewContext
+    
     @EnvironmentObject var sheetManager: PartialSheetManager
-
     @ObservedObject var viewModel = EventsViewModel()
-
-
-    //    private var items: FetchedResults<Item>
 
     var body: some View {
         let oringnalColor = DynamicColor(selectedColor)
@@ -53,7 +48,8 @@ struct ContentView: View {
                             Text("13")
                                 .font(.system(size: 120, weight: .bold, design: .default))
                         }
-                        Text("days until").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        Text("days until")
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
 
                     EventItem(selectedColor: $selectedColor)
@@ -69,61 +65,13 @@ struct ContentView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 10)
                 .navigationTitle("Countdown")
+                
             }
-            .addPartialSheet()
-        }.onOpenURL {url in
+        }
+        .addPartialSheet()
+        .onOpenURL {url in
             print("\(url)")
         }
-
-
-        //        NavigationView{
-        //            ZStack{
-        //                VStack(alignment:.leading, spacing:10){
-
-
-        //courosel
-        //                HStack{
-        //                    ColorPicker("", selection: $bgColor).labelsHidden()
-        //                }
-
-        //control
-
-        //                DatePicker(selection: $selectedDate,displayedComponents: .date) {
-        //                    Text("Event Date")
-        //                        .textCase(.uppercase)
-        //                        .font(.subheadline)
-        //                        .frame(alignment: .leading)
-        //                }.datePickerStyle(GraphicalDatePickerStyle())
-
-
-        //                }.padding()
-        //                .navigationTitle("Event Countdown")
-        //
-
-        //            .background(Color.blue)
-        //            List {
-        //                ForEach(items) { item in
-        //                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-        //                }
-        //                .onDelete(perform: deleteItems)
-        //            }
-        //            .toolbar {
-        //                HStack{
-        //                    #if os(iOS)
-        //                    EditButton()
-        //                    #endif
-        //
-        //                    Button(action: addItem) {
-        //                        Label("Add Item", systemImage: "plus")
-        //                    }
-        //                }
-        //            }
-        //            }.ignoresSafeArea()
-        //            .background(backgound)
-        //
-        //        }
-
-
     }
 
     private func eventDate(isInEditMode: Bool, currentDate: String) -> some View {
@@ -133,16 +81,10 @@ struct ContentView: View {
                     DatePicker("", selection: $selectedDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
-                    
-                    Button(action: {}/*@END_MENU_TOKEN@*/, label: {
-                        Text("Button")
-                    })
-                    
                 }
                 .padding(.horizontal, 25)
                 .clipped()
 
-                
             }
         }, label: {
             HStack(alignment: .center) {
@@ -169,29 +111,20 @@ struct ContentView: View {
 
     private func homeButtons() -> some View {
         HStack(alignment: .center) {
-            button(action: editItem, title: "Edit", icon: "square.and.pencil")
+            BottomButton(title: "Edit", icon: "square.and.pencil", action: editItem)
             Spacer()
-            button(action: addItem, title: "Add", icon: "plus")
+            BottomButton(title: "Add", icon: "plus", action: addItem)
             Spacer()
-            button(action: settings, title: "Settings", icon: "gear")
+            BottomButton(title: "Settings", icon: "gear", action: settings)
         }
     }
 
     private func editButtons() -> some View {
         HStack(alignment: .center) {
-            button(action: deleteItem, title: "Delete", icon: "trash")
+            BottomButton(title: "Delete", icon: "trash", action: deleteItem)
             Spacer()
-            button(action: saveItem, title: "Save", icon: "checkmark")
+            BottomButton(title: "Save", icon: "checkmark", action: saveItem)
         }
-    }
-
-    private func button(action: @escaping () -> Void, title: String, icon: String)-> some View {
-        Button(action: action) {
-            VStack(alignment: .center, spacing: 10) {
-                Image(systemName: icon).font(.largeTitle).foregroundColor(.white)
-                Text(title).font(.caption).foregroundColor(.white)
-            }.padding()
-        }.frame(width: 100, height: 80, alignment: .center)
     }
 
     private func settings() {
@@ -262,6 +195,5 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
