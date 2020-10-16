@@ -33,6 +33,7 @@ class EventItemTests: XCTestCase {
         newItem.id = id
         newItem.timestamp = Date()
         try context.save()
+        
 //        let viewContext = self.persistenceContainer.viewContext
         let fetchReqquest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         fetchReqquest.fetchLimit = 1

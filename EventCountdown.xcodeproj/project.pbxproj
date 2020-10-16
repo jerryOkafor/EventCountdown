@@ -34,6 +34,13 @@
 		C48B1A652529FD8100025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
 		C48B1A6A2529FD8300025CCD /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */; };
 		C48B1A752529FE3C00025CCD /* MockEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B1A1225297E2000025CCD /* MockEventItem.swift */; };
+		C4DF407C2532A5DD0083BEC6 /* ButtomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF407B2532A5DC0083BEC6 /* ButtomButton.swift */; };
+		C4DF40822532BE720083BEC6 /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF40812532BE720083BEC6 /* NewEventViewModel.swift */; };
+		C4DF41072537C06A0083BEC6 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF41062537C06A0083BEC6 /* DataSource.swift */; };
+		C4DF410D2537C09E0083BEC6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF410C2537C09E0083BEC6 /* Repository.swift */; };
+		C4DF41162537D6300083BEC6 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = C4DF41152537D6300083BEC6 /* Resolver */; };
+		C4DF411C2537D66C0083BEC6 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF411B2537D66C0083BEC6 /* Injection.swift */; };
+		C4DF4122253864E40083BEC6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DF4121253864E40083BEC6 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +111,12 @@
 		C48B1A1225297E2000025CCD /* MockEventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEventItem.swift; sourceTree = "<group>"; };
 		C48B1A222529CF7E00025CCD /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		C48B1A532529FC6000025CCD /* EventItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemTests.swift; sourceTree = "<group>"; };
+		C4DF407B2532A5DC0083BEC6 /* ButtomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomButton.swift; sourceTree = "<group>"; };
+		C4DF40812532BE720083BEC6 /* NewEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
+		C4DF41062537C06A0083BEC6 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		C4DF410C2537C09E0083BEC6 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		C4DF411B2537D66C0083BEC6 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		C4DF4121253864E40083BEC6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DF41162537D6300083BEC6 /* Resolver in Frameworks */,
 				C48B19BE2528E5FB00025CCD /* DynamicColor in Frameworks */,
 				C485D1F32528834200CAD8BB /* PartialSheet in Frameworks */,
 			);
@@ -177,6 +191,7 @@
 				C485D10A2527A12E00CAD8BB /* EventCountdownApp.swift */,
 				C485D1182527A13100CAD8BB /* Info.plist */,
 				C485D1102527A13100CAD8BB /* Preview Content */,
+				C4DF411B2537D66C0083BEC6 /* Injection.swift */,
 			);
 			path = EventCountdown;
 			sourceTree = "<group>";
@@ -234,6 +249,7 @@
 				C485D1F9252883EA00CAD8BB /* Settings.swift */,
 				C485D2052528B51400CAD8BB /* EventItem.swift */,
 				C48B19C32528E91A00025CCD /* NewEvent.swift */,
+				C4DF407B2532A5DC0083BEC6 /* ButtomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +259,9 @@
 			children = (
 				C485D1152527A13100CAD8BB /* EventCountdown.xcdatamodeld */,
 				C485D1132527A13100CAD8BB /* Persistence.swift */,
+				C4DF41062537C06A0083BEC6 /* DataSource.swift */,
+				C4DF410C2537C09E0083BEC6 /* Repository.swift */,
+				C4DF4121253864E40083BEC6 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				C48B19FB2529636900025CCD /* EventsViewModel.swift */,
+				C4DF40812532BE720083BEC6 /* NewEventViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -327,6 +347,7 @@
 			packageProductDependencies = (
 				C485D1F22528834200CAD8BB /* PartialSheet */,
 				C48B19BD2528E5FB00025CCD /* DynamicColor */,
+				C4DF41152537D6300083BEC6 /* Resolver */,
 			);
 			productName = EventCountdown;
 			productReference = C485D1072527A12E00CAD8BB /* EventCountdown.app */;
@@ -422,6 +443,7 @@
 			packageReferences = (
 				C485D1F12528834200CAD8BB /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				C48B19BC2528E5FB00025CCD /* XCRemoteSwiftPackageReference "DynamicColor" */,
+				C4DF41142537D6300083BEC6 /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = C485D1082527A12E00CAD8BB /* Products */;
 			projectDirPath = "";
@@ -496,11 +518,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DF411C2537D66C0083BEC6 /* Injection.swift in Sources */,
 				C485D1FA252883EA00CAD8BB /* Settings.swift in Sources */,
+				C4DF407C2532A5DD0083BEC6 /* ButtomButton.swift in Sources */,
 				C485D1142527A13100CAD8BB /* Persistence.swift in Sources */,
+				C4DF41072537C06A0083BEC6 /* DataSource.swift in Sources */,
 				C485D10D2527A12E00CAD8BB /* ContentView.swift in Sources */,
 				C485D1172527A13100CAD8BB /* EventCountdown.xcdatamodeld in Sources */,
 				C485D10B2527A12E00CAD8BB /* EventCountdownApp.swift in Sources */,
+				C4DF4122253864E40083BEC6 /* Event.swift in Sources */,
+				C4DF410D2537C09E0083BEC6 /* Repository.swift in Sources */,
+				C4DF40822532BE720083BEC6 /* NewEventViewModel.swift in Sources */,
 				C48B19C42528E91A00025CCD /* NewEvent.swift in Sources */,
 				C48B19FC2529636900025CCD /* EventsViewModel.swift in Sources */,
 				C48B1A752529FE3C00025CCD /* MockEventItem.swift in Sources */,
@@ -914,6 +942,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		C4DF41142537D6300083BEC6 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -926,6 +962,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C48B19BC2528E5FB00025CCD /* XCRemoteSwiftPackageReference "DynamicColor" */;
 			productName = DynamicColor;
+		};
+		C4DF41152537D6300083BEC6 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4DF41142537D6300083BEC6 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
 		};
 /* End XCSwiftPackageProductDependency section */
 

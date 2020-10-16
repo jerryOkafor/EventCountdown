@@ -10,8 +10,12 @@ import CoreData
 
 //Ref: https://medium.com/@Dougly/persisting-image-data-locally-swift-3-8bae72673f8a
 class EventsViewModel: ObservableObject {
+    private var viewContext = CoreDataHelper.shared.container.viewContext
 
-    @Published var events = [EventItem]()
+    @Published
+    private(set) var events = [EventMO]()
+    
+    
     let fileManager = FileManager.default
     //get url for the users home directory
     lazy var documentsURL: URL? = {
@@ -64,6 +68,19 @@ class EventsViewModel: ObservableObject {
             }
         } catch {
             throw error
+        }
+    }
+    
+    func loadEvents() {
+        let fetchReqquest = NSFetchRequest<NSFetchRequestResult>(entityName: "EventMO")
+        do {
+            let items = try self.viewContext.fetch(fetchReqquest)
+
+            items.forEach {
+                print($0)
+            }
+        } catch {
+            print("Error: \(error)")
         }
     }
 }

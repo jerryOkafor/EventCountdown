@@ -7,39 +7,28 @@
 
 import CoreData
 
-struct PersistenceController {
-    static let shared = PersistenceController()
+protocol PersistenceController {
+    var container: NSPersistentContainer { get }
+    func setUp(completion: (() -> Void)?) throws
+}
+
+struct CoreDataHelper: PersistenceController {
+    let container: NSPersistentContainer
+    static let shared = CoreDataHelper()
 
     //Preview on xcode
     static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
+        let result = CoreDataHelper(inMemory: true)
         let viewContext = result.container.viewContext
-
-//        for _ in 0..<10 {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
-//
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            // Replace this implementation with code to handle the error appropriately.
-//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//            let nsError = error as NSError
-//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//        }
-
         return result
     }()
 
     //Testing
     static var testing: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
+        let result = CoreDataHelper(inMemory: true)
         let viewContext = result.container.viewContext
         return result
     }()
-
-    let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "EventCountdown")
@@ -55,7 +44,7 @@ struct PersistenceController {
         
     }
     
-    func setup(completion: (() -> Void)?) throws {
+    func setUp(completion: (() -> Void)?) throws {
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
