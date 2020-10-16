@@ -5,6 +5,7 @@
 //  Created by Jerry Hanks on 02/10/2020.
 //
 
+import CoreData
 import DynamicColor
 import PartialSheet
 import SwiftUI
@@ -20,8 +21,11 @@ struct ContentView: View {
     @State var currentDate: String = "Oct 17th, 2020"
     @State private var selectedColor = Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     
+    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var sheetManager: PartialSheetManager
+    
     @ObservedObject var viewModel = EventsViewModel()
+    
 
     var body: some View {
         let oringnalColor = DynamicColor(selectedColor)
@@ -35,7 +39,7 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.all)
 
                 NavigationLink(
-                    destination: NewEvent(selectedColor: selectedColor),
+                    destination: NewEvent(),
                     isActive: $isNewEvent) {}
 
                 VStack(alignment: .leading, spacing: 10) {
@@ -71,6 +75,9 @@ struct ContentView: View {
         .addPartialSheet()
         .onOpenURL {url in
             print("\(url)")
+        }
+        .onAppear {
+            self.viewModel.loadEvents()
         }
     }
 

@@ -15,7 +15,7 @@ class CoreDataTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.persistence = PersistenceController.testing
+//        self.persistence = PersistenceController.testing
         self.persistenceContainer = persistence.container
         
         try super.setUpWithError()
